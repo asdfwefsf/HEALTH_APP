@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".difault.DefaultFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/teal_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/textChip1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            tools:ignore="DuplicateSpeakableTextCheck"
+            tools:text="Test" />
+
+        <TextView
+            android:id="@+id/setNum1"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            tools:text="test"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/textChip2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:text="Test"
+            android:layout_marginStart="8dp"/>
+
+        <TextView
+            android:id="@+id/setNum2"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            tools:text="test"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/textChip3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:text="Test"
+            android:layout_marginStart="8dp"/>
+
+        <TextView
+            android:id="@+id/setNum3"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            tools:text="test"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/textChip4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:text="Test"
+            android:layout_marginStart="8dp"/>
+
+        <TextView
+            android:id="@+id/setNum4"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            tools:text="test"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/textChip5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:text="Test"
+            android:layout_marginStart="8dp"/>
+
+        <TextView
+            android:id="@+id/setNum5"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            tools:text="test"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/textChip6"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:text="Test"
+            android:layout_marginStart="8dp"/>
+
+        <TextView
+            android:id="@+id/setNum6"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            tools:text="test"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/textChip7"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:text="Test"
+            android:layout_marginStart="8dp"/>
+
+        <TextView
+            android:id="@+id/setNum7"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            tools:text="test"/>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/endFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/login"
+        android:backgroundTint="@color/teal_200"
+        android:contentDescription="@string/ability5"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
