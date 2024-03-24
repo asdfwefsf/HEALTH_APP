@@ -1,5 +1,6 @@
 package com.company.health_app
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -43,7 +44,7 @@ class MainActivity : ComponentActivity() , ExcerciseAdapter.ExcerciseItemClickLi
                 newRoutine.launch(it)
             }
         }
-        
+
 
         binding.endButton.setOnClickListener {
             Thread{
@@ -68,6 +69,7 @@ class MainActivity : ComponentActivity() , ExcerciseAdapter.ExcerciseItemClickLi
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun initRecyclerView() {
         // View(RecyclerView)와 Data 를 연결 하기 위해서 Adapter 를 만들 꺼야.
         excerciseAdapter = ExcerciseAdapter(mutableListOf(), this)
