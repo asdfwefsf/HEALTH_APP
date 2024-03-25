@@ -1,9 +1,9 @@
 package com.company.health_app
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.company.health_app.databinding.ActivityExcerciseAddBinding
 
 class ExcerciseAddActivity : AppCompatActivity() {
@@ -22,7 +22,11 @@ class ExcerciseAddActivity : AppCompatActivity() {
             if (name.isNotEmpty() && setNum.isNotEmpty()) {
                 excercise = Excercise(name , setNum.toInt())
                 updateRoutine()
+            } else {
+                Toast.makeText(this, "빈값이 존재합니다.", Toast.LENGTH_SHORT).show()
             }
+
+
         }
 
         binding.toolbar.apply {

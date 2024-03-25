@@ -102,7 +102,7 @@ class DefaultFragment : Fragment() {
                 choiceSetPicker.value = numSet
 
                 AlertDialog.Builder(requireContext()).apply {
-                    setTitle("ddd")
+//                    setTitle("ddd")
                     setMessage("몇 세트 하실겁니까")
                     setView(dialogView)
                     setPositiveButton("확인") { _, _ ->
