@@ -34,6 +34,7 @@ class ExcerciseAddActivity : AppCompatActivity() {
         }
     }
 
+
     private fun updateRoutine() { // roomDatabase에 Data Update
 //        val name = binding.inputName.text.toString()
 //        val setNum = binding.inputSetNum.text.toString().toInt()
