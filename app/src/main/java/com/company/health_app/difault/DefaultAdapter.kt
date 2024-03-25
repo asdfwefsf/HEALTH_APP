@@ -5,8 +5,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class DefaultAdapter(@Suppress("unused")private val defaultActivity: DefaultActivity) : FragmentStateAdapter(defaultActivity) {
 
-// Adapter를 사용해서 Fragment의 position에 맞게 화면의 UI를 구성하는 것을 배웠음.
-    // TabLayoutMediator를 통해서 Fragment에서 Fragment로 이동할 때 스와이프를 통해 이동하는 것을 배웠음.
     override fun getItemCount(): Int {
         return 5
     }
