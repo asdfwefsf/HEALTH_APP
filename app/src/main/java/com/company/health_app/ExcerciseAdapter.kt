@@ -6,10 +6,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.company.health_app.databinding.ItemExcerciseBinding
+import com.company.health_app.domain.model.ExcerciseModel
+import com.company.health_app.presentation.viewmodel.ExcerciseViewModel
 
 
 class ExcerciseAdapter (
-    val list : MutableList<Excercise>,
+    val list : MutableList<ExcerciseModel>,
+    private val excerciseViewModel: ExcerciseViewModel,
+
     private var widgetClickListener: ExcerciseItemClickListener,
 ) : RecyclerView.Adapter<ExcerciseAdapter.ExcerciseViewHolder>(){
 
@@ -17,20 +21,24 @@ class ExcerciseAdapter (
     class ExcerciseViewHolder(private var binding : ItemExcerciseBinding) : RecyclerView.ViewHolder(binding.root) {
 
 
-        fun bind(excercise : Excercise) {
+        fun bind(excersiceModel : ExcerciseModel , excerciseViewModel : ExcerciseViewModel) {
             binding.apply{
-                itemName.text = excercise.name
-                itemSetNum.text = excercise.setNum.toString()
-                var currentSetNum = excercise.setNum.toString().toInt()
+                itemName.text = excersiceModel.name
+                itemSetNum.text = excersiceModel.setNum.toString()
+                var currentSetNum = excersiceModel.setNum.toString().toInt()
 
                 discountSet.setOnClickListener {
                     if(currentSetNum > 0) {
                         currentSetNum -= 1
                         itemSetNum.text = currentSetNum.toString()
-                        excercise.setNum = currentSetNum
-                        Thread{
-                            AppDatabase.getInstance(root.context)?.excerciseDao()?.update(excercise)
-                        }.start()
+                        excersiceModel.setNum = currentSetNum
+
+
+                        excerciseViewModel.UpdateExcercise(excersiceModel)
+
+//                        Thread{
+//                            ExcerciseDatabase.getInstance(root.context)?.excerciseDao()?.update(excersiceModel)
+//                        }.start()
                     }
                 }
                 deleteSet.setOnClickListener{
@@ -52,7 +60,7 @@ class ExcerciseAdapter (
 
     override fun onBindViewHolder(holder: ExcerciseViewHolder, position: Int) {
         val excercise = list[position]
-        holder.bind(excercise)
+        holder.bind(excercise , excerciseViewModel)
         holder.itemView.findViewById<Button>(R.id.deleteSet).setOnClickListener {
             widgetClickListener.onItemDeleteClick(excercise)
         }
@@ -61,6 +69,6 @@ class ExcerciseAdapter (
     }
 
     interface ExcerciseItemClickListener {
-        fun onItemDeleteClick(excercise: Excercise)
+        fun onItemDeleteClick(excerciseModel: ExcerciseModel)
     }
 }

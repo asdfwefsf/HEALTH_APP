@@ -3,17 +3,21 @@ package com.company.health_app
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
+import com.company.health_app.data.datasource.excercise.entity.ExcerciseEntity
+import com.company.health_app.data.datasource.excercise.entity.mapper.toExcerciseModel
 import com.company.health_app.databinding.ActivityExcerciseAddBinding
-import com.company.health_app.presentation.ExcerciseViewModel
+import com.company.health_app.presentation.viewmodel.ExcerciseViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ExcerciseAddActivity : AppCompatActivity() {
     private lateinit var binding : ActivityExcerciseAddBinding
-    private lateinit var excercise : Excercise
+    private lateinit var excerciseEntity : ExcerciseEntity
 
     // 리팩토링
-    private lateinit var excerciseViewModel: ExcerciseViewModel
+    private val excerciseViewModel: ExcerciseViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +25,7 @@ class ExcerciseAddActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // 리팩토링
-        excerciseViewModel = ViewModelProvider(this).get(ExcerciseViewModel::class.java)
+//        excerciseViewModel = ViewModelProvider(this).get(ExcerciseViewModel::class.java)
 
 
         binding.saveButton.setOnClickListener {
@@ -29,10 +33,10 @@ class ExcerciseAddActivity : AppCompatActivity() {
             val setNum = binding.inputSetNum.text.toString()
 
             if (name.isNotEmpty() && setNum.isNotEmpty()) {
-                excercise = Excercise(name , setNum.toInt())
+                excerciseEntity = ExcerciseEntity(name , setNum.toInt())
 
                 // 리팩토링
-                excerciseViewModel.insert(excercise)
+                excerciseViewModel.insert(excerciseEntity.toExcerciseModel())
                 observeInsertResult()
 
 
@@ -56,7 +60,7 @@ class ExcerciseAddActivity : AppCompatActivity() {
     // 리팩토링
     private fun observeInsertResult() {
         // 관찰하여 저장 완료 후 액티비티 종료
-        excerciseViewModel.allExcercises.observe(this) {
+//        excerciseViewModel.allExcercises.observe(this) {
             Toast.makeText(this, "저장을 완료했습니다.", Toast.LENGTH_SHORT).show()
             val intent = Intent().putExtra("updated", true)
             setResult(RESULT_OK, intent)
@@ -65,23 +69,22 @@ class ExcerciseAddActivity : AppCompatActivity() {
     }
 
 
-    private fun updateRoutine() { // roomDatabase에 Data Update
-//        val name = binding.inputName.text.toString()
-//        val setNum = binding.inputSetNum.text.toString().toInt()
-//        val excercise = Excercise(name , setNum)
-
-        Thread {
-            AppDatabase.getInstance(this)?.excerciseDao()?.insert(excercise)
-            runOnUiThread {
-                Toast.makeText(this, "저장을 완료했습니다.", Toast.LENGTH_SHORT).show()
-            }
-            val intent = Intent().putExtra("updated",true)
-            setResult(RESULT_OK,intent)
-            finish()
-        }.start()
-    }
-
-
+//    private fun updateRoutine() { // roomDatabase에 Data Update
+////        val name = binding.inputName.text.toString()
+////        val setNum = binding.inputSetNum.text.toString().toInt()
+////        val excercise = Excercise(name , setNum)
+//
+//        Thread {
+//            ExcerciseDatabase.getInstance(this)?.excerciseDao()?.insert(excercise)
+//            runOnUiThread {
+//                Toast.makeText(this, "저장을 완료했습니다.", Toast.LENGTH_SHORT).show()
+//            }
+//            val intent = Intent().putExtra("updated",true)
+//            setResult(RESULT_OK,intent)
+//            finish()
+//        }.start()
+//    }
 
 
-}
+
+
