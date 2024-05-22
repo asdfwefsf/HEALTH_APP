@@ -425,6 +425,7 @@ class DefaultFragment : Fragment() {
                                 excerciseEntity
                             )
                         }.start()
+
                     }
                     setNegativeButton("취소") { _, _ ->
                     }
