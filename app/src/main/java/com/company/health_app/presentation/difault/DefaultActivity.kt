@@ -1,4 +1,4 @@
-package com.company.health_app.difault
+package com.company.health_app.presentation.difault
 
 import android.content.Intent
 import android.os.Bundle

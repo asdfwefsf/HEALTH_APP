@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.company.health_app.data.datasource.excercise.db.ExcerciseDatabase
 import com.company.health_app.data.datasource.excercise.entity.mapper.toExcerciseModel
 import com.company.health_app.databinding.ActivityMainBinding
-import com.company.health_app.difault.DefaultActivity
 import com.company.health_app.domain.model.ExcerciseModel
+import com.company.health_app.presentation.difault.DefaultActivity
 import com.company.health_app.presentation.viewmodel.ExcerciseViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

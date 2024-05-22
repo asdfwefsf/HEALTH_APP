@@ -1,4 +1,4 @@
-package com.company.health_app.difault
+package com.company.health_app.presentation.difault
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -13,8 +13,10 @@ import androidx.fragment.app.Fragment
 import com.company.health_app.R
 import com.company.health_app.data.datasource.excercise.db.ExcerciseDatabase
 import com.company.health_app.data.datasource.excercise.entity.ExcerciseEntity
+import com.company.health_app.data.datasource.excercise.entity.mapper.toExcerciseEntity
 import com.company.health_app.databinding.DefaultFragmentBinding
 import com.company.health_app.databinding.DialogCountSettingBinding
+import com.company.health_app.domain.model.ExcerciseModel
 
 class DefaultFragment : Fragment() {
 
@@ -108,7 +110,8 @@ class DefaultFragment : Fragment() {
                     setPositiveButton("확인") { _, _ ->
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum1.text = numSet.toString()
-                        excerciseEntity = ExcerciseEntity(bodyPart1, numSet)
+//                        excerciseEntity = ExcerciseEntity(bodyPart1, numSet)
+                        excerciseEntity = ExcerciseModel(0 , bodyPart1, numSet).toExcerciseEntity()
                         Thread {
                             ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
                                 excerciseEntity
@@ -159,7 +162,7 @@ class DefaultFragment : Fragment() {
                     setPositiveButton("확인") { _, _ ->
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum2.text = numSet.toString()
-                        excerciseEntity = ExcerciseEntity(bodyPart2, numSet)
+                        excerciseEntity = ExcerciseModel(0 ,bodyPart2, numSet).toExcerciseEntity()
                         Thread {
                             ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
                                 excerciseEntity
@@ -210,7 +213,7 @@ class DefaultFragment : Fragment() {
                     setPositiveButton("확인") { _, _ ->
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum3.text = numSet.toString()
-                        excerciseEntity = ExcerciseEntity(bodyPart3, numSet)
+                        excerciseEntity = ExcerciseModel(0 ,bodyPart3, numSet).toExcerciseEntity()
                         Thread {
                             ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
                                 excerciseEntity
@@ -261,7 +264,7 @@ class DefaultFragment : Fragment() {
                     setPositiveButton("확인") { _, _ ->
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum4.text = numSet.toString()
-                        excerciseEntity = ExcerciseEntity(bodyPart4, numSet)
+                        excerciseEntity = ExcerciseModel(0 ,bodyPart4, numSet).toExcerciseEntity()
                         Thread {
                             ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
                                 excerciseEntity
@@ -312,7 +315,7 @@ class DefaultFragment : Fragment() {
                     setPositiveButton("확인") { _, _ ->
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum5.text = numSet.toString()
-                        excerciseEntity = ExcerciseEntity(bodyPart5, numSet)
+                        excerciseEntity = ExcerciseModel(0 ,bodyPart5, numSet).toExcerciseEntity()
                         Thread {
                             ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
                                 excerciseEntity
@@ -364,7 +367,7 @@ class DefaultFragment : Fragment() {
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum6.text = numSet.toString()
 //                        setNumList.add(numSet)
-                        excerciseEntity = ExcerciseEntity(bodyPart6, numSet)
+                        excerciseEntity = ExcerciseModel(0 ,bodyPart6, numSet).toExcerciseEntity()
                         Thread {
                             ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
                                 excerciseEntity
@@ -416,7 +419,7 @@ class DefaultFragment : Fragment() {
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum7.text = numSet.toString()
 //                        setNumList.add(numSet)
-                        excerciseEntity = ExcerciseEntity(bodyPart7, numSet)
+                        excerciseEntity = ExcerciseModel(0 ,bodyPart7, numSet).toExcerciseEntity()
                         Thread {
                             ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
                                 excerciseEntity

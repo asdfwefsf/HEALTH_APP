@@ -10,10 +10,12 @@ import com.company.health_app.data.impl.ExcerciseGetAllRepositoryImpl
 import com.company.health_app.data.impl.ExcerciseGetLatestWordRepositoryImpl
 import com.company.health_app.data.impl.ExcerciseInsertRepositoryImpl
 import com.company.health_app.data.impl.ExcerciseRepositoryImpl
+import com.company.health_app.data.impl.ExcerciseUpdateRepositoryImpl
 import com.company.health_app.domain.repository.ExcerciseGetAllRepository
 import com.company.health_app.domain.repository.ExcerciseGetLatestWordRepository
 import com.company.health_app.domain.repository.ExcerciseInsertRepository
 import com.company.health_app.domain.repository.ExcerciseRepository
+import com.company.health_app.domain.repository.ExcerciseUpdateRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,7 +36,7 @@ object AppModule {
         return Room.databaseBuilder(
             context.applicationContext,
             ExcerciseDatabase::class.java,
-            "excercise_database"
+            "excercise_database.db"
         ).build()
     }
 
@@ -56,5 +58,7 @@ object AppModule {
     @Provides
     fun provideExcerciseInsertRepository(impl : ExcerciseInsertRepositoryImpl) : ExcerciseInsertRepository = impl
 
+    @Provides
+    fun provideExcerciseUpdateRepository(impl : ExcerciseUpdateRepositoryImpl) : ExcerciseUpdateRepository = impl
 }
 

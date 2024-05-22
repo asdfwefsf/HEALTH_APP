@@ -1,4 +1,4 @@
-package com.company.health_app.difault
+package com.company.health_app.presentation.difault
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

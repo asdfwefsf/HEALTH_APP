@@ -8,7 +8,8 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @Entity(tableName = "Excercise")
 data class ExcerciseEntity(
+    @PrimaryKey(autoGenerate = true)
+    val id : Int = 0,
     val name : String,
     var setNum : Int,
-    @PrimaryKey(autoGenerate = true)val id : Int = 0,
 ) : Parcelable

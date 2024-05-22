@@ -6,8 +6,10 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.company.health_app.data.datasource.excercise.entity.ExcerciseEntity
+import com.company.health_app.data.datasource.excercise.entity.mapper.toExcerciseEntity
 import com.company.health_app.data.datasource.excercise.entity.mapper.toExcerciseModel
 import com.company.health_app.databinding.ActivityExcerciseAddBinding
+import com.company.health_app.domain.model.ExcerciseModel
 import com.company.health_app.presentation.viewmodel.ExcerciseViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,7 +35,9 @@ class ExcerciseAddActivity : AppCompatActivity() {
             val setNum = binding.inputSetNum.text.toString()
 
             if (name.isNotEmpty() && setNum.isNotEmpty()) {
-                excerciseEntity = ExcerciseEntity(name , setNum.toInt())
+//                excerciseEntity = ExcerciseEntity(name , setNum.toInt())
+                // TODO
+                excerciseEntity = ExcerciseModel(0 , name , setNum.toInt()).toExcerciseEntity()
 
                 // 리팩토링
                 excerciseViewModel.insert(excerciseEntity.toExcerciseModel())

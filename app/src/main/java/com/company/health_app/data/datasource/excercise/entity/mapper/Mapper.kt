@@ -5,6 +5,7 @@ import com.company.health_app.domain.model.ExcerciseModel
 
 fun ExcerciseEntity.toExcerciseModel(): ExcerciseModel {
     return ExcerciseModel(
+        id = this.id,
         name = this.name,
         setNum = this.setNum,
     )
@@ -12,6 +13,7 @@ fun ExcerciseEntity.toExcerciseModel(): ExcerciseModel {
 
 fun ExcerciseModel.toExcerciseEntity(): ExcerciseEntity {
     return ExcerciseEntity(
+        id = this.id,
         name = this.name,
         setNum = this.setNum,
     )

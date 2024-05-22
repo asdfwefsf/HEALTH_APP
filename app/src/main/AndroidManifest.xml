@@ -14,7 +14,7 @@
         android:theme="@style/Theme.HEALTH_APP"
         tools:targetApi="33" >
         <activity
-            android:name=".difault.DefaultActivity"
+            android:name=".presentation.difault.DefaultActivity"
             android:exported="false"
             android:label="@string/title_activity_default"
             android:theme="@style/Theme.HEALTH_APP" />

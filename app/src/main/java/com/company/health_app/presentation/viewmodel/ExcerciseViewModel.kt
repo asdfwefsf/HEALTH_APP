@@ -9,6 +9,7 @@ import com.company.health_app.domain.usecase.ExcerciseDeleteUseCase
 import com.company.health_app.domain.usecase.ExcerciseGetAllUseCase
 import com.company.health_app.domain.usecase.ExcerciseGetLatestWordUseCase
 import com.company.health_app.domain.usecase.ExcerciseInsertUseCase
+import com.company.health_app.domain.usecase.ExcerciseUpdateUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,7 +22,8 @@ class ExcerciseViewModel @Inject constructor(
     private val deleteUseCase: ExcerciseDeleteUseCase,
     private val getLatestWordUseCase: ExcerciseGetLatestWordUseCase,
     private val excerciseGetAllUseCase: ExcerciseGetAllUseCase,
-    private val excerciseInsertUseCase: ExcerciseInsertUseCase
+    private val excerciseInsertUseCase: ExcerciseInsertUseCase,
+    private val excerciseUpdateUseCase : ExcerciseUpdateUseCase
 
 
     ) : ViewModel() {
@@ -71,6 +73,7 @@ class ExcerciseViewModel @Inject constructor(
 //
     fun UpdateExcercise(excercise: ExcerciseModel) = viewModelScope.launch(Dispatchers.IO) {
 //        repository.update(excercise)
+        excerciseUpdateUseCase(excercise)
     }
 //
 //    fun delete(excercise: Excercise) = viewModelScope.launch(Dispatchers.IO) {
