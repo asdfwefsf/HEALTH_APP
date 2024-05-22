@@ -14,3 +14,6 @@
 2. 커스텀 운동 루틴 추가 로직 -> MVVM 패턴으로 변경 (LiveData + Observe + Adapter)
 3. Hilt로 의존성 주입
 4. 전체 운동 루틴 제거 로직 -> MVVM 패턴으로 변경 (LiveData + Observe + Adapter)
+
+2024-05-22
+0. 2차 리팩토링
