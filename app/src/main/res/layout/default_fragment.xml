@@ -16,198 +16,289 @@
 
     <LinearLayout
         android:id="@+id/linearLayout1"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/textChip1"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             tools:ignore="DuplicateSpeakableTextCheck"
             tools:text="Test" />
 
+
         <TextView
             android:id="@+id/setNum1"
-            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textSize="30sp"
+            android:layout_marginTop="8dp"
             android:textColor="@color/white"
-            tools:text="test"/>
+            android:textSize="30sp"
+            tools:text="test" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/deleteButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="루틴 삭제"
+
+            />
+
+
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        app:layout_constraintTop_toBottomOf="@id/linearLayout1">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/textChip2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            tools:text="Test"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginStart="8dp"
+            tools:text="Test" />
 
         <TextView
             android:id="@+id/setNum2"
-            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textSize="30sp"
+            android:layout_marginTop="8dp"
             android:textColor="@color/white"
-            tools:text="test"/>
+            android:textSize="30sp"
+            tools:text="test" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/deleteButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="루틴 삭제"
+
+            />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        app:layout_constraintTop_toBottomOf="@id/linearLayout2">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/textChip3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            tools:text="Test"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginStart="8dp"
+            tools:text="Test" />
 
         <TextView
             android:id="@+id/setNum3"
-            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textSize="30sp"
+            android:layout_marginTop="8dp"
             android:textColor="@color/white"
-            tools:text="test"/>
+            android:textSize="30sp"
+            tools:text="test" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/deleteButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="루틴 삭제"
+
+            />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        app:layout_constraintTop_toBottomOf="@id/linearLayout3">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/textChip4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            tools:text="Test"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginStart="8dp"
+            tools:text="Test" />
 
         <TextView
             android:id="@+id/setNum4"
-            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textSize="30sp"
+            android:layout_marginTop="8dp"
             android:textColor="@color/white"
-            tools:text="test"/>
+            android:textSize="30sp"
+            tools:text="test" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/deleteButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="루틴 삭제"
+
+            />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout5"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        app:layout_constraintTop_toBottomOf="@id/linearLayout4">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/textChip5"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            tools:text="Test"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginStart="8dp"
+            tools:text="Test" />
 
         <TextView
             android:id="@+id/setNum5"
-            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textSize="30sp"
+            android:layout_marginTop="8dp"
             android:textColor="@color/white"
-            tools:text="test"/>
+            android:textSize="30sp"
+            tools:text="test" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/deleteButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="루틴 삭제"
+
+            />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout6"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        app:layout_constraintTop_toBottomOf="@id/linearLayout5">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/textChip6"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            tools:text="Test"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginStart="8dp"
+            tools:text="Test" />
 
         <TextView
             android:id="@+id/setNum6"
-            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textSize="30sp"
+            android:layout_marginTop="8dp"
             android:textColor="@color/white"
-            tools:text="test"/>
+            android:textSize="30sp"
+            tools:text="test" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/deleteButton6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="루틴 삭제"
+
+            />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout7"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        app:layout_constraintTop_toBottomOf="@id/linearLayout6">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/textChip7"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            tools:text="Test"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginStart="8dp"
+            tools:text="Test" />
 
         <TextView
             android:id="@+id/setNum7"
-            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textSize="30sp"
+            android:layout_marginTop="8dp"
             android:textColor="@color/white"
-            tools:text="test"/>
+            android:textSize="30sp"
+            tools:text="test" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/deleteButton7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="루틴 삭제"
+
+            />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/endFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/login"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/teal_200"
         android:contentDescription="@string/ability5"
-        />
+        android:src="@drawable/login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

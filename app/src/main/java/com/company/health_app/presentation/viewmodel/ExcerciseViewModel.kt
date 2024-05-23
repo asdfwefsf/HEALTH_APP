@@ -51,6 +51,7 @@ class ExcerciseViewModel @Inject constructor(
     fun insert(excercise: ExcerciseModel) = viewModelScope.launch(Dispatchers.IO) {
 //        repository.insert(excercise)
         excerciseInsertUseCase(excercise)
+
 //        GetAllExcercise()
     }
 

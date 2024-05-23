@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,7 +38,16 @@ class DefaultFragment : Fragment() {
     private var bodyPart5: String = ""
     private var bodyPart6: String = ""
     private var bodyPart7: String = ""
-    private var position: Int = 0 // position 변수 추가
+    private var position: Int = 0
+
+
+    private var exerciseModel1 = ExcerciseModel(0, bodyPart1, numSet)
+    private var exerciseModel2 = ExcerciseModel(0, bodyPart2, numSet)
+    private var exerciseModel3 = ExcerciseModel(0, bodyPart3, numSet)
+    private var exerciseModel4 = ExcerciseModel(0, bodyPart4, numSet)
+    private var exerciseModel5 = ExcerciseModel(0, bodyPart5, numSet)
+    private var exerciseModel6 = ExcerciseModel(0, bodyPart6, numSet)
+    private var exerciseModel7 = ExcerciseModel(0, bodyPart7, numSet)
 
 
     // 리팩토링
@@ -118,30 +128,22 @@ class DefaultFragment : Fragment() {
                     setPositiveButton("확인") { _, _ ->
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum1.text = numSet.toString()
-//                        excerciseEntity = ExcerciseEntity(bodyPart1, numSet)
-
-
                         // 리팩토링
-                        val exerciseModel = ExcerciseModel(0, bodyPart1, numSet)
-                        excerciseViewModel.insert(exerciseModel)
 
 
-//                        excerciseEntity = ExcerciseModel(0 , bodyPart1, numSet).toExcerciseEntity()
-//                        Thread {
-//                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
-//                                excerciseEntity
-//                            )
-//                        }.start()
+                        exerciseModel1 = ExcerciseModel(0, bodyPart1, numSet)
+                        excerciseViewModel.insert(exerciseModel1)
                     }
                     setNegativeButton("취소") { _, _ ->
                     }
                     setNeutralButton("DB 삭제") { _, _ ->
                         nameToDelete = bodyPart1
-                        Thread {
-                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()
-                                ?.deleteByName(nameToDelete)
-                        }.start()
+
+                        // 리팩토링
+                        var excerciseModel = ExcerciseModel(0 , bodyPart1 , numSet)
+                        excerciseViewModel.DeleteExcercise(excerciseModel)
                         binding.setNum1.text = ""
+
                     }
                 }.show().apply {
                     findViewById<TextView>(android.R.id.button1)?.apply {
@@ -159,6 +161,32 @@ class DefaultFragment : Fragment() {
                 }
             }
         }
+
+        binding.deleteButton1.setOnClickListener {
+            exerciseModel1?.let {
+                Log.d("sdfsf"  , "${it}")
+
+                excerciseViewModel.DeleteExcercise(it)
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         binding.textChip2.apply {
             text = bodyPart2
