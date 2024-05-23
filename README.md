@@ -23,3 +23,4 @@
 0. 3차 리팩토링
 1. 운동 루틴 하나만 삭제 로직 -> MVVM 패턴으로 변경
 2. ExcerciseAdapter의 ItemClickListener 제거 -> ViewModel에서만 로직 실행되도록 설정
+3. DefaultActivity ~ DeafaultActity 기본 운동 루틴 저장하는 뢰직 -> MVVM 패턴으로 변경
