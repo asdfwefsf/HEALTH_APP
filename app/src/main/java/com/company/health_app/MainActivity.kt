@@ -14,14 +14,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.company.health_app.data.datasource.excercise.db.ExcerciseDatabase
 import com.company.health_app.data.datasource.excercise.entity.mapper.toExcerciseModel
 import com.company.health_app.databinding.ActivityMainBinding
-import com.company.health_app.domain.model.ExcerciseModel
 import com.company.health_app.presentation.difault.DefaultActivity
 import com.company.health_app.presentation.viewmodel.ExcerciseViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity(), ExcerciseAdapter.ExcerciseItemClickListener {
+class MainActivity : ComponentActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var excerciseAdapter: ExcerciseAdapter
     private val deleteAllLiveData = MutableLiveData<Boolean>()
@@ -112,7 +111,7 @@ class MainActivity : ComponentActivity(), ExcerciseAdapter.ExcerciseItemClickLis
     @SuppressLint("NotifyDataSetChanged")
     private fun initRecyclerView() {
         // View(RecyclerView)와 Data 를 연결 하기 위해서 Adapter 를 만들 꺼야.
-        excerciseAdapter = ExcerciseAdapter(mutableListOf(), excerciseViewModel, this)
+        excerciseAdapter = ExcerciseAdapter(mutableListOf(), excerciseViewModel)
         binding.recyclerView.apply {
             adapter = excerciseAdapter
             layoutManager =
@@ -166,13 +165,19 @@ class MainActivity : ComponentActivity(), ExcerciseAdapter.ExcerciseItemClickLis
     }
 
 
-    override fun onItemDeleteClick(excerciseModel: ExcerciseModel) {
-//        Thread {
-//            ExcerciseDatabase.getInstance(this)?.excerciseDao()?.delete(excerciseModel)
-//            runOnUiThread {
-//                initRecyclerView()
-//            }
-//        }.start()
-    }
+//    override fun onItemDeleteClick(excerciseModel: ExcerciseModel) {
+////        Thread {
+////            ExcerciseDatabase.getInstance(this)?.excerciseDao()?.delete(excerciseModel)
+////            runOnUiThread {
+////                initRecyclerView()
+////            }
+////        }.start()
+////        initRecyclerView()
+//
+//        excerciseViewModel.DeleteExcercise(excerciseModel)
+//        initRecyclerView()
+//
+//
+//    }
 
 }

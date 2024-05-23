@@ -3,7 +3,6 @@ package com.company.health_app
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.company.health_app.databinding.ItemExcerciseBinding
 import com.company.health_app.domain.model.ExcerciseModel
@@ -14,7 +13,6 @@ class ExcerciseAdapter (
     val list : MutableList<ExcerciseModel>,
     private val excerciseViewModel: ExcerciseViewModel,
 
-    private var widgetClickListener: ExcerciseItemClickListener,
 ) : RecyclerView.Adapter<ExcerciseAdapter.ExcerciseViewHolder>(){
 
 
@@ -33,16 +31,12 @@ class ExcerciseAdapter (
                         itemSetNum.text = currentSetNum.toString()
                         excersiceModel.setNum = currentSetNum
 
-
                         excerciseViewModel.UpdateExcercise(excersiceModel)
-
-//                        Thread{
-//                            ExcerciseDatabase.getInstance(root.context)?.excerciseDao()?.update(excersiceModel)
-//                        }.start()
                     }
                 }
                 deleteSet.setOnClickListener{
 
+                    excerciseViewModel.DeleteExcercise(excersiceModel)
                 }
             }
         }
@@ -61,9 +55,7 @@ class ExcerciseAdapter (
     override fun onBindViewHolder(holder: ExcerciseViewHolder, position: Int) {
         val excercise = list[position]
         holder.bind(excercise , excerciseViewModel)
-        holder.itemView.findViewById<Button>(R.id.deleteSet).setOnClickListener {
-            widgetClickListener.onItemDeleteClick(excercise)
-        }
+
 
 
     }

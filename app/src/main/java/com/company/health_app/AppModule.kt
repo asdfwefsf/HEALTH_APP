@@ -6,11 +6,13 @@ import android.content.Context
 import androidx.room.Room
 import com.company.health_app.data.datasource.excercise.dao.ExcerciseDao
 import com.company.health_app.data.datasource.excercise.db.ExcerciseDatabase
+import com.company.health_app.data.impl.ExcerciseDeleteRepositoryImpl
 import com.company.health_app.data.impl.ExcerciseGetAllRepositoryImpl
 import com.company.health_app.data.impl.ExcerciseGetLatestWordRepositoryImpl
 import com.company.health_app.data.impl.ExcerciseInsertRepositoryImpl
 import com.company.health_app.data.impl.ExcerciseRepositoryImpl
 import com.company.health_app.data.impl.ExcerciseUpdateRepositoryImpl
+import com.company.health_app.domain.repository.ExcerciseDeleteRepository
 import com.company.health_app.domain.repository.ExcerciseGetAllRepository
 import com.company.health_app.domain.repository.ExcerciseGetLatestWordRepository
 import com.company.health_app.domain.repository.ExcerciseInsertRepository
@@ -60,5 +62,8 @@ object AppModule {
 
     @Provides
     fun provideExcerciseUpdateRepository(impl : ExcerciseUpdateRepositoryImpl) : ExcerciseUpdateRepository = impl
+
+    @Provides
+    fun provideExcerciseDeleteRepository(impl : ExcerciseDeleteRepositoryImpl) : ExcerciseDeleteRepository = impl
 }
 

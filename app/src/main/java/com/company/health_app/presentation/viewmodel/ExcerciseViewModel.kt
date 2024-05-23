@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.company.health_app.domain.model.ExcerciseModel
+import com.company.health_app.domain.usecase.ExcerciseDeleteAllUseCase
 import com.company.health_app.domain.usecase.ExcerciseDeleteUseCase
 import com.company.health_app.domain.usecase.ExcerciseGetAllUseCase
 import com.company.health_app.domain.usecase.ExcerciseGetLatestWordUseCase
@@ -19,11 +20,12 @@ import javax.inject.Inject
 @HiltViewModel
 class ExcerciseViewModel @Inject constructor(
 //    application: Application,
-    private val deleteUseCase: ExcerciseDeleteUseCase,
+    private val deleteUseCase: ExcerciseDeleteAllUseCase,
     private val getLatestWordUseCase: ExcerciseGetLatestWordUseCase,
     private val excerciseGetAllUseCase: ExcerciseGetAllUseCase,
     private val excerciseInsertUseCase: ExcerciseInsertUseCase,
-    private val excerciseUpdateUseCase : ExcerciseUpdateUseCase
+    private val excerciseUpdateUseCase : ExcerciseUpdateUseCase,
+    private val edxcerciseDeleteUseCase : ExcerciseDeleteUseCase
 
 
     ) : ViewModel() {
@@ -32,9 +34,7 @@ class ExcerciseViewModel @Inject constructor(
 //    val allExcercises: LiveData<List<Excercise>>
 
     init {
-//        val excerciseDao = ExcerciseDatabase.getInstance(application)?.excerciseDao()
-//        repository = ExcerciseRepository(excerciseDao!!)
-//        allExcercises = repository.allExcercises
+        GetAllExcercise()
     }
 
     // custom 운동 루틴 변수 및 함수
@@ -57,6 +57,12 @@ class ExcerciseViewModel @Inject constructor(
     fun DeleteAll() = viewModelScope.launch(Dispatchers.IO) {
 //        repository.insert(excercise)
         deleteUseCase()
+    }
+
+    fun DeleteExcercise(excercise: ExcerciseModel) = viewModelScope.launch(Dispatchers.IO) {
+        edxcerciseDeleteUseCase(excercise)
+        GetAllExcercise() // 데이터 삭제 후 최신 데이터를 가져와서 업데이트
+
     }
 
 
