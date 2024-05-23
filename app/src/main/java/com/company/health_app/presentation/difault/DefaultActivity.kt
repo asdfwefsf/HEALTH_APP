@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.company.health_app.MainActivity
 import com.company.health_app.databinding.ActivityDefaultBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DefaultActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDefaultBinding

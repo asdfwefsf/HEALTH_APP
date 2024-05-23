@@ -13,7 +13,6 @@ plugins {
 android {
     namespace 'com.company.health_app'
     compileSdk 33
-
     defaultConfig {
         applicationId "com.company.health_app"
         minSdk 28
@@ -74,6 +73,10 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.room:room-common:2.5.2'
     implementation 'androidx.room:room-ktx:2.5.2'
+
+
+    implementation "androidx.fragment:fragment-ktx:1.5.4"
+
 
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"

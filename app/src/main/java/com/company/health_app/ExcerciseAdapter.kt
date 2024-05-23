@@ -12,9 +12,7 @@ import com.company.health_app.presentation.viewmodel.ExcerciseViewModel
 class ExcerciseAdapter (
     val list : MutableList<ExcerciseModel>,
     private val excerciseViewModel: ExcerciseViewModel,
-
 ) : RecyclerView.Adapter<ExcerciseAdapter.ExcerciseViewHolder>(){
-
 
     class ExcerciseViewHolder(private var binding : ItemExcerciseBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -30,12 +28,10 @@ class ExcerciseAdapter (
                         currentSetNum -= 1
                         itemSetNum.text = currentSetNum.toString()
                         excersiceModel.setNum = currentSetNum
-
                         excerciseViewModel.UpdateExcercise(excersiceModel)
                     }
                 }
                 deleteSet.setOnClickListener{
-
                     excerciseViewModel.DeleteExcercise(excersiceModel)
                 }
             }
@@ -55,12 +51,6 @@ class ExcerciseAdapter (
     override fun onBindViewHolder(holder: ExcerciseViewHolder, position: Int) {
         val excercise = list[position]
         holder.bind(excercise , excerciseViewModel)
-
-
-
     }
 
-    interface ExcerciseItemClickListener {
-        fun onItemDeleteClick(excerciseModel: ExcerciseModel)
-    }
 }

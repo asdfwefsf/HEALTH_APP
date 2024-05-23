@@ -47,16 +47,10 @@ class MainActivity : ComponentActivity() {
         setContentView(binding.root)
 
         // 리팩토링
-
-//        val factory = ExcerciseViewModelFactory()
-//        excerciseViewModel = ViewModelProvider(this, factory).get(ExcerciseViewModel::class.java)
-
         binding.toolbar.apply {
             title = "어디 운동 할꾸?!"
         }
-
         initRecyclerView()
-
         binding.callExcerciseAdd.setOnClickListener {
             Intent(this, ExcerciseAddActivity::class.java).let { // ExcerciseAddActivity로 이동.
                 newRoutine.launch(it)
@@ -65,15 +59,8 @@ class MainActivity : ComponentActivity() {
 
 
         binding.endButton.setOnClickListener {
-//            Thread{
-//                deleteAll()
-//                deleteAllLiveData.postValue(true)
-//            }.start()
-
-            // 리팩토링
             excerciseViewModel.DeleteAll()
             deleteAllLiveData.postValue(true)
-
         }
 
         deleteAllLiveData.observe(this) { isDeleted ->
@@ -121,21 +108,9 @@ class MainActivity : ComponentActivity() {
                 DividerItemDecoration(applicationContext, LinearLayoutManager.VERTICAL)
             addItemDecoration(dividerItemDecoration)
         }
-//        Thread {
-//            val list = ExcerciseDatabase.getInstance(this)?.excerciseDao()?.getAll() ?: emptyList()
-//        val list = excerciseViewModel.GetAllExcercise()
-//
-//        // ExcerciseDatabase.getInstance(this) : MainActivity 와 ExcerciseDatabase 객체를 연결
-//        // DataBase 에서 내용을 부르는 거야
-//
-//        excerciseAdapter.list.addAll(list)
-//        //Adapter 의 list 에 Data 를 넣어 준거야.
         runOnUiThread {
             excerciseAdapter.notifyDataSetChanged()
-
-            // Data 넣었 다고 알려 주는 거야 , notifyDataSetChanged() 에 의해서 UI가 변경이 될 것이 므로 Thread 를 만들어 줘야 해.
         }
-//        }.start()
     }
 
     // 리팩토링 1
@@ -150,34 +125,11 @@ class MainActivity : ComponentActivity() {
             }
         }.start()
     }
-
-
-    private fun deleteAll() {
-        ExcerciseDatabase.getInstance(this)?.excerciseDao()?.deleteAll()
-    }
-
-
     private fun fromDefaultFragmentToMainActivity() {
         val intent = Intent().getBooleanExtra("endDefaultFragment", false)
         if (intent) {
             initRecyclerView()
         }
     }
-
-
-//    override fun onItemDeleteClick(excerciseModel: ExcerciseModel) {
-////        Thread {
-////            ExcerciseDatabase.getInstance(this)?.excerciseDao()?.delete(excerciseModel)
-////            runOnUiThread {
-////                initRecyclerView()
-////            }
-////        }.start()
-////        initRecyclerView()
-//
-//        excerciseViewModel.DeleteExcercise(excerciseModel)
-//        initRecyclerView()
-//
-//
-//    }
 
 }

@@ -10,18 +10,23 @@ import android.view.ViewGroup
 import android.widget.NumberPicker
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.company.health_app.R
 import com.company.health_app.data.datasource.excercise.db.ExcerciseDatabase
 import com.company.health_app.data.datasource.excercise.entity.ExcerciseEntity
-import com.company.health_app.data.datasource.excercise.entity.mapper.toExcerciseEntity
 import com.company.health_app.databinding.DefaultFragmentBinding
 import com.company.health_app.databinding.DialogCountSettingBinding
 import com.company.health_app.domain.model.ExcerciseModel
+import com.company.health_app.presentation.viewmodel.ExcerciseViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DefaultFragment : Fragment() {
 
     private lateinit var binding: DefaultFragmentBinding
     private lateinit var dialogBinding: DialogCountSettingBinding
+    private val excerciseViewModel: ExcerciseViewModel by viewModels()
+
     private var numSet: Int = 0
     private lateinit var excerciseEntity: ExcerciseEntity
     private var nameToDelete: String = ""
@@ -33,6 +38,9 @@ class DefaultFragment : Fragment() {
     private var bodyPart6: String = ""
     private var bodyPart7: String = ""
     private var position: Int = 0 // position 변수 추가
+
+
+    // 리팩토링
 
 
     companion object {
@@ -111,12 +119,19 @@ class DefaultFragment : Fragment() {
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum1.text = numSet.toString()
 //                        excerciseEntity = ExcerciseEntity(bodyPart1, numSet)
-                        excerciseEntity = ExcerciseModel(0 , bodyPart1, numSet).toExcerciseEntity()
-                        Thread {
-                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
-                                excerciseEntity
-                            )
-                        }.start()
+
+
+                        // 리팩토링
+                        val exerciseModel = ExcerciseModel(0, bodyPart1, numSet)
+                        excerciseViewModel.insert(exerciseModel)
+
+
+//                        excerciseEntity = ExcerciseModel(0 , bodyPart1, numSet).toExcerciseEntity()
+//                        Thread {
+//                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
+//                                excerciseEntity
+//                            )
+//                        }.start()
                     }
                     setNegativeButton("취소") { _, _ ->
                     }
@@ -162,12 +177,16 @@ class DefaultFragment : Fragment() {
                     setPositiveButton("확인") { _, _ ->
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum2.text = numSet.toString()
-                        excerciseEntity = ExcerciseModel(0 ,bodyPart2, numSet).toExcerciseEntity()
-                        Thread {
-                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
-                                excerciseEntity
-                            )
-                        }.start()
+
+                        // 리팩토링
+                        val exerciseModel = ExcerciseModel(0, bodyPart2, numSet)
+                        excerciseViewModel.insert(exerciseModel)
+//                        excerciseEntity = ExcerciseModel(0 ,bodyPart2, numSet).toExcerciseEntity()
+//                        Thread {
+//                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
+//                                excerciseEntity
+//                            )
+//                        }.start()
                     }
                     setNegativeButton("취소") { _, _ ->
                     }
@@ -213,12 +232,16 @@ class DefaultFragment : Fragment() {
                     setPositiveButton("확인") { _, _ ->
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum3.text = numSet.toString()
-                        excerciseEntity = ExcerciseModel(0 ,bodyPart3, numSet).toExcerciseEntity()
-                        Thread {
-                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
-                                excerciseEntity
-                            )
-                        }.start()
+
+                        // 리팩토링
+                        val exerciseModel = ExcerciseModel(0, bodyPart3, numSet)
+                        excerciseViewModel.insert(exerciseModel)
+//                        excerciseEntity = ExcerciseModel(0 ,bodyPart3, numSet).toExcerciseEntity()
+//                        Thread {
+//                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
+//                                excerciseEntity
+//                            )
+//                        }.start()
                     }
                     setNegativeButton("취소") { _, _ ->
                     }
@@ -264,12 +287,15 @@ class DefaultFragment : Fragment() {
                     setPositiveButton("확인") { _, _ ->
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum4.text = numSet.toString()
-                        excerciseEntity = ExcerciseModel(0 ,bodyPart4, numSet).toExcerciseEntity()
-                        Thread {
-                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
-                                excerciseEntity
-                            )
-                        }.start()
+                        // 리팩토링
+                        val exerciseModel = ExcerciseModel(0, bodyPart4, numSet)
+                        excerciseViewModel.insert(exerciseModel)
+//                        excerciseEntity = ExcerciseModel(0 ,bodyPart4, numSet).toExcerciseEntity()
+//                        Thread {
+//                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
+//                                excerciseEntity
+//                            )
+//                        }.start()
                     }
                     setNegativeButton("취소") { _, _ ->
                     }
@@ -315,12 +341,15 @@ class DefaultFragment : Fragment() {
                     setPositiveButton("확인") { _, _ ->
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum5.text = numSet.toString()
-                        excerciseEntity = ExcerciseModel(0 ,bodyPart5, numSet).toExcerciseEntity()
-                        Thread {
-                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
-                                excerciseEntity
-                            )
-                        }.start()
+                        // 리팩토링
+                        val exerciseModel = ExcerciseModel(0, bodyPart5, numSet)
+                        excerciseViewModel.insert(exerciseModel)
+//                        excerciseEntity = ExcerciseModel(0 ,bodyPart5, numSet).toExcerciseEntity()
+//                        Thread {
+//                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
+//                                excerciseEntity
+//                            )
+//                        }.start()
                     }
                     setNegativeButton("취소") { _, _ ->
                     }
@@ -367,12 +396,16 @@ class DefaultFragment : Fragment() {
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum6.text = numSet.toString()
 //                        setNumList.add(numSet)
-                        excerciseEntity = ExcerciseModel(0 ,bodyPart6, numSet).toExcerciseEntity()
-                        Thread {
-                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
-                                excerciseEntity
-                            )
-                        }.start()
+
+                        // 리팩토링
+                        val exerciseModel = ExcerciseModel(0, bodyPart6, numSet)
+                        excerciseViewModel.insert(exerciseModel)
+//                        excerciseEntity = ExcerciseModel(0 ,bodyPart6, numSet).toExcerciseEntity()
+//                        Thread {
+//                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
+//                                excerciseEntity
+//                            )
+//                        }.start()
                     }
                     setNegativeButton("취소") { _, _ ->
                     }
@@ -419,12 +452,15 @@ class DefaultFragment : Fragment() {
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum7.text = numSet.toString()
 //                        setNumList.add(numSet)
-                        excerciseEntity = ExcerciseModel(0 ,bodyPart7, numSet).toExcerciseEntity()
-                        Thread {
-                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
-                                excerciseEntity
-                            )
-                        }.start()
+                        // 리팩토링
+                        val exerciseModel = ExcerciseModel(0, bodyPart7, numSet)
+                        excerciseViewModel.insert(exerciseModel)
+//                        excerciseEntity = ExcerciseModel(0 ,bodyPart7, numSet).toExcerciseEntity()
+//                        Thread {
+//                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
+//                                excerciseEntity
+//                            )
+//                        }.start()
 
                     }
                     setNegativeButton("취소") { _, _ ->
