@@ -76,12 +76,12 @@ class MainActivity : ComponentActivity() {
             fromDefaultFragmentToMainActivity()
         }
 
-        excerciseViewModel.latestWord.observe(this, Observer { excercise ->
+        excerciseViewModel.latestWord.observe(this) { excercise ->
             excercise?.let {
                 excerciseAdapter.list.add(0, it)
                 excerciseAdapter.notifyItemInserted(0)
             }
-        })
+        }
 
         excerciseViewModel.allExcercises.observe(this, Observer { list ->
             excerciseAdapter.list.clear()

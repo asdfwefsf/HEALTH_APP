@@ -39,11 +39,11 @@ class ExcerciseViewModel @Inject constructor(
 
     // custom 운동 루틴 변수 및 함수
     private val _latestWord = MutableLiveData<ExcerciseModel>()
-    val latestWord: LiveData<ExcerciseModel> get() = _latestWord
+    val latestWord: LiveData<ExcerciseModel>  = _latestWord
     fun updateAddWord() = viewModelScope.launch(Dispatchers.IO) {
-        val latestWord = getLatestWordUseCase()
+        val resulet = getLatestWordUseCase()
         withContext(Dispatchers.Main) {
-            _latestWord.value = latestWord
+            _latestWord.value = resulet
         }
     }
 

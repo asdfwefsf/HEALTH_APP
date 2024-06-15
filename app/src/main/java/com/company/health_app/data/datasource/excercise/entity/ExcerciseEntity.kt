@@ -1,15 +1,33 @@
 package com.company.health_app.data.datasource.excercise.entity
 
-import android.os.Parcelable
 import androidx.room.Entity
-import androidx.room.PrimaryKey
-import kotlinx.parcelize.Parcelize
+import androidx.room.Ignore
 
-@Parcelize
-@Entity(tableName = "Excercise")
+open class Test {
+    val test : String? = null
+}
+
+@Entity(primaryKeys = ["name" , "setNum"])
 data class ExcerciseEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id : Int = 0,
+//    @PrimaryKey(autoGenerate = true)
+//    val id : Int = 0,
     val name : String,
-    var setNum : Int,
-) : Parcelable
+    val setNum : Int,
+    @Ignore val ignore: String? = null
+)
+{
+    constructor(name : String , setNum: Int) : this(name , setNum , null)
+}
+
+
+
+
+
+
+//@Entity(tableName = "Excercises")
+//data class ExcerciseEntity(
+//    @PrimaryKey(autoGenerate = true)
+//    val id : Int = 0,
+//    @ColumnInfo(name = "first_column") val name : String,
+//    @ColumnInfo(name = "second_column") val setNum : Int,
+//)

@@ -41,15 +41,29 @@ class DefaultFragment : Fragment() {
     private var position: Int = 0
 
 
-    private var exerciseModel1 = ExcerciseModel(0, bodyPart1, numSet)
-    private var exerciseModel2 = ExcerciseModel(0, bodyPart2, numSet)
-    private var exerciseModel3 = ExcerciseModel(0, bodyPart3, numSet)
-    private var exerciseModel4 = ExcerciseModel(0, bodyPart4, numSet)
-    private var exerciseModel5 = ExcerciseModel(0, bodyPart5, numSet)
-    private var exerciseModel6 = ExcerciseModel(0, bodyPart6, numSet)
-    private var exerciseModel7 = ExcerciseModel(0, bodyPart7, numSet)
+//    private var exerciseModel1 = ExcerciseModel(0, bodyPart1, numSet)
+//    private var exerciseModel2 = ExcerciseModel(0, bodyPart2, numSet)
+//    private var exerciseModel3 = ExcerciseModel(0, bodyPart3, numSet)
+//    private var exerciseModel4 = ExcerciseModel(0, bodyPart4, numSet)
+//    private var exerciseModel5 = ExcerciseModel(0, bodyPart5, numSet)
+//    private var exerciseModel6 = ExcerciseModel(0, bodyPart6, numSet)
+//    private var exerciseModel7 = ExcerciseModel(0, bodyPart7, numSet)
 
+//    private var exerciseModel1 = ExcerciseModel(0, bodyPart1, numSet)
+//    private var exerciseModel2 = ExcerciseModel(0, bodyPart2, numSet)
+//    private var exerciseModel3 = ExcerciseModel(0, bodyPart3, numSet)
+//    private var exerciseModel4 = ExcerciseModel(0, bodyPart4, numSet)
+//    private var exerciseModel5 = ExcerciseModel(0, bodyPart5, numSet)
+//    private var exerciseModel6 = ExcerciseModel(0, bodyPart6, numSet)
+//    private var exerciseModel7 = ExcerciseModel(0, bodyPart7, numSet)
 
+    private var exerciseModel1 = ExcerciseModel( bodyPart1, numSet)
+    private var exerciseModel2 = ExcerciseModel(bodyPart2, numSet)
+    private var exerciseModel3 = ExcerciseModel( bodyPart3, numSet)
+    private var exerciseModel4 = ExcerciseModel( bodyPart4, numSet)
+    private var exerciseModel5 = ExcerciseModel( bodyPart5, numSet)
+    private var exerciseModel6 = ExcerciseModel( bodyPart6, numSet)
+    private var exerciseModel7 = ExcerciseModel( bodyPart7, numSet)
     // 리팩토링
 
 
@@ -131,7 +145,8 @@ class DefaultFragment : Fragment() {
                         // 리팩토링
 
 
-                        exerciseModel1 = ExcerciseModel(0, bodyPart1, numSet)
+                        exerciseModel1 = ExcerciseModel(bodyPart1, numSet)
+//                        exerciseModel1 = ExcerciseModel(0, bodyPart1, numSet)
                         excerciseViewModel.insert(exerciseModel1)
                     }
                     setNegativeButton("취소") { _, _ ->
@@ -140,7 +155,8 @@ class DefaultFragment : Fragment() {
                         nameToDelete = bodyPart1
 
                         // 리팩토링
-                        var excerciseModel = ExcerciseModel(0 , bodyPart1 , numSet)
+//                        var excerciseModel = ExcerciseModel(0 , bodyPart1 , numSet)
+                        var excerciseModel = ExcerciseModel(bodyPart1 , numSet)
                         excerciseViewModel.DeleteExcercise(excerciseModel)
                         binding.setNum1.text = ""
 
@@ -207,7 +223,8 @@ class DefaultFragment : Fragment() {
                         binding.setNum2.text = numSet.toString()
 
                         // 리팩토링
-                        val exerciseModel = ExcerciseModel(0, bodyPart2, numSet)
+                        val exerciseModel = ExcerciseModel(bodyPart2, numSet)
+//                        val exerciseModel = ExcerciseModel(0, bodyPart2, numSet)
                         excerciseViewModel.insert(exerciseModel)
 //                        excerciseEntity = ExcerciseModel(0 ,bodyPart2, numSet).toExcerciseEntity()
 //                        Thread {
@@ -262,7 +279,8 @@ class DefaultFragment : Fragment() {
                         binding.setNum3.text = numSet.toString()
 
                         // 리팩토링
-                        val exerciseModel = ExcerciseModel(0, bodyPart3, numSet)
+                        val exerciseModel = ExcerciseModel( bodyPart3, numSet)
+//                        val exerciseModel = ExcerciseModel(0, bodyPart3, numSet)
                         excerciseViewModel.insert(exerciseModel)
 //                        excerciseEntity = ExcerciseModel(0 ,bodyPart3, numSet).toExcerciseEntity()
 //                        Thread {
@@ -316,7 +334,8 @@ class DefaultFragment : Fragment() {
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum4.text = numSet.toString()
                         // 리팩토링
-                        val exerciseModel = ExcerciseModel(0, bodyPart4, numSet)
+                        val exerciseModel = ExcerciseModel(bodyPart4, numSet)
+//                        val exerciseModel = ExcerciseModel(0, bodyPart4, numSet)
                         excerciseViewModel.insert(exerciseModel)
 //                        excerciseEntity = ExcerciseModel(0 ,bodyPart4, numSet).toExcerciseEntity()
 //                        Thread {
@@ -370,7 +389,8 @@ class DefaultFragment : Fragment() {
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum5.text = numSet.toString()
                         // 리팩토링
-                        val exerciseModel = ExcerciseModel(0, bodyPart5, numSet)
+                        val exerciseModel = ExcerciseModel(bodyPart5, numSet)
+//                        val exerciseModel = ExcerciseModel(0, bodyPart5, numSet)
                         excerciseViewModel.insert(exerciseModel)
 //                        excerciseEntity = ExcerciseModel(0 ,bodyPart5, numSet).toExcerciseEntity()
 //                        Thread {
@@ -426,7 +446,8 @@ class DefaultFragment : Fragment() {
 //                        setNumList.add(numSet)
 
                         // 리팩토링
-                        val exerciseModel = ExcerciseModel(0, bodyPart6, numSet)
+                        val exerciseModel = ExcerciseModel(bodyPart6, numSet)
+//                        val exerciseModel = ExcerciseModel(0, bodyPart6, numSet)
                         excerciseViewModel.insert(exerciseModel)
 //                        excerciseEntity = ExcerciseModel(0 ,bodyPart6, numSet).toExcerciseEntity()
 //                        Thread {
@@ -481,7 +502,8 @@ class DefaultFragment : Fragment() {
                         binding.setNum7.text = numSet.toString()
 //                        setNumList.add(numSet)
                         // 리팩토링
-                        val exerciseModel = ExcerciseModel(0, bodyPart7, numSet)
+                        val exerciseModel = ExcerciseModel( bodyPart7, numSet)
+//                        val exerciseModel = ExcerciseModel(0, bodyPart7, numSet)
                         excerciseViewModel.insert(exerciseModel)
 //                        excerciseEntity = ExcerciseModel(0 ,bodyPart7, numSet).toExcerciseEntity()
 //                        Thread {
