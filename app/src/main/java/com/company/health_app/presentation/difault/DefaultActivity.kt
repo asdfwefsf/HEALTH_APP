@@ -25,7 +25,12 @@ class DefaultActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tabLayout , binding.viewPager) {tab , position ->
             run {
                 tab.text = when(position) {
-                    0 -> "가슴" 1 -> "어깨" 2 -> "등" 3 -> "팔" 4 -> "하체" else -> null
+                    0 -> "가슴"
+                    1 -> "어깨"
+                    2 -> "등"
+                    3 -> "팔"
+                    4 -> "하체"
+                    else -> null
                 }
             }
         }.attach()
