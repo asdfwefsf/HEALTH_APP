@@ -9,7 +9,7 @@ import javax.inject.Inject
 class ExcerciseGetLatestWordRepositoryImpl @Inject constructor(
     private val dao : ExcerciseDao
 ) : ExcerciseGetLatestWordRepository {
-    override suspend fun GetExcerciseGetLatestWord(): ExcerciseModel {
+    override suspend fun getExcerciseGetLatestWord(): ExcerciseModel {
          return dao.getLatestWord().toExcerciseModel()
     }
 

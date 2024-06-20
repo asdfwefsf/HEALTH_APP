@@ -12,7 +12,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.company.health_app.data.datasource.excercise.dao.ExcerciseDao
-import com.company.health_app.data.datasource.excercise.entity.mapper.toExcerciseModel
 import com.company.health_app.databinding.ActivityMainBinding
 import com.company.health_app.presentation.difault.DefaultActivity
 import com.company.health_app.presentation.viewmodel.ExcerciseViewModel
@@ -117,12 +116,7 @@ class MainActivity : ComponentActivity() {
     // ExcerciseAddActivity가 종료되면 호출되는 함수에서 제일 마지막에 호출 :
     private fun updateAddWord() {
         Thread {
-            excerciseDao.getLatestWord().let { excercise ->
-                excerciseAdapter.list.add(0, excercise.toExcerciseModel())
-                runOnUiThread {
-                    excerciseAdapter.notifyItemInserted(0)
-                }
-            }
+            excerciseViewModel.getAllExcercise()
         }.start()
     }
 }

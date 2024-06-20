@@ -44,10 +44,12 @@ class ExcerciseViewModel @Inject constructor(
     val allExcercises: LiveData<List<ExcerciseModel>> = _allExcercises
     fun getAllExcercise() = viewModelScope.launch(Dispatchers.IO) {
         val excercises = excerciseGetAllUseCase()
+        // postValue 호출되면 allExcercises를 구독하는 모든 활성상태 관찰자들에게 새로운 데이터 전달됨.
         _allExcercises.postValue(excercises)
     }
     // 운동 루틴 정보 업데이트
     fun updateExcercise(excercise: ExcerciseModel) = viewModelScope.launch(Dispatchers.IO) {
         excerciseUpdateUseCase(excercise)
     }
+
 }

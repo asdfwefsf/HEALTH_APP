@@ -9,7 +9,7 @@ import javax.inject.Inject
 class ExcerciseGetAllRepositoryImpl @Inject constructor(
     private val dao : ExcerciseDao
 ) : ExcerciseGetAllRepository {
-    override suspend fun ExcerciseGetAll() : List<ExcerciseModel> {
+    override suspend fun excerciseGetAll() : List<ExcerciseModel> {
         return dao.getAll().map {
             it.toExcerciseModel()
         }
