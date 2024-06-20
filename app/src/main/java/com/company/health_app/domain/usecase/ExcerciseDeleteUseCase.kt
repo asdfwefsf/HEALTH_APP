@@ -8,6 +8,6 @@ class ExcerciseDeleteUseCase @Inject constructor(
     private val excerciseDeleteRepository : ExcerciseDeleteRepository
 ) {
     suspend operator fun invoke(excercise : ExcerciseModel) {
-        excerciseDeleteRepository.ExcerciseDelete(excercise)
+        excerciseDeleteRepository.excerciseDelete(excercise)
     }
 }

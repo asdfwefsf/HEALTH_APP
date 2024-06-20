@@ -11,7 +11,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.company.health_app.data.datasource.excercise.db.ExcerciseDatabase
+import com.company.health_app.data.datasource.excercise.dao.ExcerciseDao
 import com.company.health_app.data.datasource.excercise.entity.mapper.toExcerciseModel
 import com.company.health_app.databinding.ActivityMainBinding
 import com.company.health_app.presentation.difault.DefaultActivity
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var excerciseAdapter: ExcerciseAdapter
     private val deleteAllLiveData = MutableLiveData<Boolean>()
-
+    private lateinit var  excerciseDao : ExcerciseDao
     // 리팩토링
     private val excerciseViewModel: ExcerciseViewModel by viewModels()
 
@@ -59,7 +59,7 @@ class MainActivity : ComponentActivity() {
 
 
         binding.endButton.setOnClickListener {
-            excerciseViewModel.DeleteAll()
+            excerciseViewModel.deleteAll()
             deleteAllLiveData.postValue(true)
         }
 
@@ -70,7 +70,7 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        binding.goToFragmentButton.setOnClickListener {
+        binding.goToDefaultActivityButton.setOnClickListener {
             val intent = Intent(this, DefaultActivity::class.java)
             startActivity(intent)
             fromDefaultFragmentToMainActivity()
@@ -89,8 +89,7 @@ class MainActivity : ComponentActivity() {
             excerciseAdapter.notifyDataSetChanged()
         })
 
-        excerciseViewModel.GetAllExcercise()
-
+        excerciseViewModel.getAllExcercise()
 
     }
 
@@ -116,7 +115,8 @@ class MainActivity : ComponentActivity() {
     // 리팩토링 1
     private fun updateAddWord() { // // roomDatabase에 최근에 추가된 Data 가져와서 Adapter에 새로운 Data로 Collection에 넣어줘
         Thread {
-            ExcerciseDatabase.getInstance(this)?.excerciseDao()?.getLatestWord()?.let { excercise ->
+//            ExcerciseDatabase.getInstance(this)?.excerciseDao()?.getLatestWord()?.let { excercise ->
+            excerciseDao?.getLatestWord()?.let { excercise ->
                 excerciseAdapter.list.add(0, excercise.toExcerciseModel()) //Update 할 때 Data 를 추가 하고
                 runOnUiThread {
 //                    excerciseAdapter.notifyDataSetChanged()

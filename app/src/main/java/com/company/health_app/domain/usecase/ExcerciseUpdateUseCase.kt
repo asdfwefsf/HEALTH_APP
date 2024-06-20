@@ -8,6 +8,6 @@ class ExcerciseUpdateUseCase @Inject constructor(
     private val excerciseUpdateRepository : ExcerciseUpdateRepository
 ) {
     suspend operator fun invoke(excercise : ExcerciseModel) {
-        excerciseUpdateRepository.ExcerciseUpdate(excercise)
+        excerciseUpdateRepository.excerciseUpdate(excercise)
     }
 }

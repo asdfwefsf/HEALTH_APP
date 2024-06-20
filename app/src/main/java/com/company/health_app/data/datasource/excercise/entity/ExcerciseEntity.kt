@@ -1,23 +1,22 @@
 package com.company.health_app.data.datasource.excercise.entity
 
 import androidx.room.Entity
-import androidx.room.Ignore
+import androidx.room.PrimaryKey
 
-open class Test {
-    val test : String? = null
-}
 
-@Entity(primaryKeys = ["name" , "setNum"])
+
+//@Entity(primaryKeys = ["name" , "setNum"])
+@Entity(tableName = "excerciseroutine")
 data class ExcerciseEntity(
-//    @PrimaryKey(autoGenerate = true)
-//    val id : Int = 0,
+    @PrimaryKey(autoGenerate = true)
+    val id : Int = 0,
     val name : String,
     val setNum : Int,
-    @Ignore val ignore: String? = null
+//    @Ignore val ignore: String? = null
 )
-{
-    constructor(name : String , setNum: Int) : this(name , setNum , null)
-}
+//{
+//    constructor(name : String , setNum: Int) : this(name , setNum , null)
+//}
 
 
 

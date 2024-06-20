@@ -9,8 +9,8 @@ import javax.inject.Inject
 class ExcerciseInsertRepositoryImpl @Inject constructor(
     private val excerciseDao: ExcerciseDao
 ) : ExcerciseInsertRepository {
-    override suspend fun InsertExcercise(excerciseModel: ExcerciseModel)  {
-        return excerciseDao.insert(excerciseModel.toExcerciseEntity())
+    override suspend fun insertExcercise(excerciseModel: ExcerciseModel)  {
+        excerciseDao.insert(excerciseModel.toExcerciseEntity())
     }
 
 }

@@ -9,7 +9,7 @@ import javax.inject.Inject
 class ExcerciseUpdateRepositoryImpl @Inject constructor(
     private val dao : ExcerciseDao
 ) : ExcerciseUpdateRepository {
-    override suspend fun ExcerciseUpdate(excercise: ExcerciseModel) {
+    override suspend fun excerciseUpdate(excercise: ExcerciseModel) {
         val mapped = excercise.toExcerciseEntity()
         dao.update(mapped)
     }

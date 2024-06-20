@@ -1,11 +1,5 @@
-package com.company.health_app
+package com.company.health_app.di
 
-
-import android.app.Application
-import android.content.Context
-import androidx.room.Room
-import com.company.health_app.data.datasource.excercise.dao.ExcerciseDao
-import com.company.health_app.data.datasource.excercise.db.ExcerciseDatabase
 import com.company.health_app.data.impl.ExcerciseDeleteRepositoryImpl
 import com.company.health_app.data.impl.ExcerciseGetAllRepositoryImpl
 import com.company.health_app.data.impl.ExcerciseGetLatestWordRepositoryImpl
@@ -22,32 +16,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
-
-    @Provides
-    @Singleton
-    fun provideContext(application: Application): Context = application
-
-    @Singleton
-    @Provides
-    fun provideDatabase(context: Context): ExcerciseDatabase {
-        return Room.databaseBuilder(
-            context.applicationContext,
-            ExcerciseDatabase::class.java,
-            "excercise_database.db"
-        ).build()
-    }
-
-    @Singleton
-    @Provides
-    fun provideExcerciseDao(database: ExcerciseDatabase): ExcerciseDao {
-        return database.excerciseDao()
-    }
-
+object RepositoryModule {
     @Provides
     fun provideExcerciseRepository(impl : ExcerciseRepositoryImpl) : ExcerciseRepository = impl
 
@@ -63,7 +35,8 @@ object AppModule {
     @Provides
     fun provideExcerciseUpdateRepository(impl : ExcerciseUpdateRepositoryImpl) : ExcerciseUpdateRepository = impl
 
+
     @Provides
     fun provideExcerciseDeleteRepository(impl : ExcerciseDeleteRepositoryImpl) : ExcerciseDeleteRepository = impl
-}
 
+}

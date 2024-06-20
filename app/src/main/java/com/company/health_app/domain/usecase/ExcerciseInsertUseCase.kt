@@ -7,7 +7,7 @@ import javax.inject.Inject
 class ExcerciseInsertUseCase @Inject constructor(
     private val excerciseInsertRepository: ExcerciseInsertRepository
 ) {
-    suspend operator fun invoke (excerciseModel: ExcerciseModel){
-        return excerciseInsertRepository.InsertExcercise(excerciseModel)
+    suspend operator fun invoke (excerciseModel: ExcerciseModel) {
+        excerciseInsertRepository.insertExcercise(excerciseModel)
     }
 }

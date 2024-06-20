@@ -9,7 +9,7 @@ import javax.inject.Inject
 class ExcerciseDeleteRepositoryImpl @Inject constructor(
     private val dao : ExcerciseDao
 ) : ExcerciseDeleteRepository {
-    override suspend fun ExcerciseDelete(excercise: ExcerciseModel) {
+    override suspend fun excerciseDelete(excercise: ExcerciseModel) {
         val mapped = excercise.toExcerciseEntity()
         dao.delete(mapped)
     }

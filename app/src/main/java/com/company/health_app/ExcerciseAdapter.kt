@@ -28,11 +28,11 @@ class ExcerciseAdapter (
                         currentSetNum -= 1
                         itemSetNum.text = currentSetNum.toString()
                         excersiceModel.setNum = currentSetNum
-                        excerciseViewModel.UpdateExcercise(excersiceModel)
+                        excerciseViewModel.updateExcercise(excersiceModel)
                     }
                 }
                 deleteSet.setOnClickListener{
-                    excerciseViewModel.DeleteExcercise(excersiceModel)
+                    excerciseViewModel.deleteExcercise(excersiceModel)
                 }
             }
         }

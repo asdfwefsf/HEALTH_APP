@@ -26,21 +26,17 @@ class ExcerciseViewModel @Inject constructor(
     private val excerciseInsertUseCase: ExcerciseInsertUseCase,
     private val excerciseUpdateUseCase : ExcerciseUpdateUseCase,
     private val edxcerciseDeleteUseCase : ExcerciseDeleteUseCase
-
-
     ) : ViewModel() {
 
-//    private val repository: ExcerciseRepository
-//    val allExcercises: LiveData<List<Excercise>>
 
     init {
-        GetAllExcercise()
+        getAllExcercise()
     }
 
     // custom 운동 루틴 변수 및 함수
     private val _latestWord = MutableLiveData<ExcerciseModel>()
     val latestWord: LiveData<ExcerciseModel>  = _latestWord
-    fun updateAddWord() = viewModelScope.launch(Dispatchers.IO) {
+    private fun updateAddWord() = viewModelScope.launch(Dispatchers.IO) {
         val resulet = getLatestWordUseCase()
         withContext(Dispatchers.Main) {
             _latestWord.value = resulet
@@ -49,50 +45,34 @@ class ExcerciseViewModel @Inject constructor(
 
 
     fun insert(excercise: ExcerciseModel) = viewModelScope.launch(Dispatchers.IO) {
-//        repository.insert(excercise)
         excerciseInsertUseCase(excercise)
-
-//        GetAllExcercise()
+    }
+    fun deleteExcercise(excercise: ExcerciseModel) = viewModelScope.launch(Dispatchers.IO) {
+        edxcerciseDeleteUseCase(excercise)
+        getAllExcercise() // 데이터 삭제 후 최신 데이터를 가져와서 업데이트
     }
 
 
-    fun DeleteAll() = viewModelScope.launch(Dispatchers.IO) {
-//        repository.insert(excercise)
+
+    fun deleteAll() = viewModelScope.launch(Dispatchers.IO) {
         deleteUseCase()
     }
 
-    fun DeleteExcercise(excercise: ExcerciseModel) = viewModelScope.launch(Dispatchers.IO) {
-        edxcerciseDeleteUseCase(excercise)
-        GetAllExcercise() // 데이터 삭제 후 최신 데이터를 가져와서 업데이트
 
-    }
 
 
 
     // 모든 운동 루틴
     private val _allExcercises = MutableLiveData<List<ExcerciseModel>>()
     val allExcercises: LiveData<List<ExcerciseModel>> = _allExcercises
-    fun GetAllExcercise() = viewModelScope.launch (Dispatchers.IO) {
+    fun getAllExcercise() = viewModelScope.launch (Dispatchers.IO) {
         val excercises = excerciseGetAllUseCase()
         _allExcercises.postValue(excercises)
     }
 
 
-//
-    fun UpdateExcercise(excercise: ExcerciseModel) = viewModelScope.launch(Dispatchers.IO) {
-//        repository.update(excercise)
+    fun updateExcercise(excercise: ExcerciseModel) = viewModelScope.launch(Dispatchers.IO) {
         excerciseUpdateUseCase(excercise)
     }
-//
-//    fun delete(excercise: Excercise) = viewModelScope.launch(Dispatchers.IO) {
-//        repository.delete(excercise)
-//    }
-//
-//    fun deleteAll() = viewModelScope.launch(Dispatchers.IO) {
-//        repository.deleteAll()
-//    }
 
-//    fun getLatestWord(): LiveData<Excercise?> = liveData(Dispatchers.IO) {
-//        emit(repository.getLatestWord())
-//    }
 }

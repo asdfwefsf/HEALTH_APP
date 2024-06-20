@@ -37,8 +37,8 @@ class ExcerciseAddActivity : AppCompatActivity() {
             if (name.isNotEmpty() && setNum.isNotEmpty()) {
 //                excerciseEntity = ExcerciseEntity(name , setNum.toInt())
                 // TODO
-//                excerciseEntity = ExcerciseModel(0 , name , setNum.toInt()).toExcerciseEntity()
-                excerciseEntity = ExcerciseModel(name , setNum.toInt()).toExcerciseEntity()
+                excerciseEntity = ExcerciseModel(0 , name , setNum.toInt()).toExcerciseEntity()
+//                excerciseEntity = ExcerciseModel(name , setNum.toInt()).toExcerciseEntity()
 
                 // 리팩토링
                 excerciseViewModel.insert(excerciseEntity.toExcerciseModel())
