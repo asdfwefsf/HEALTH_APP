@@ -5,9 +5,9 @@ import com.company.health_app.domain.repository.ExcerciseGetLatestWordRepository
 import javax.inject.Inject
 
 class ExcerciseGetLatestWordUseCase @Inject constructor(
-    private val ExcerciseGetLatestWordRepository : ExcerciseGetLatestWordRepository
+    private val excerciseGetLatestWordRepository : ExcerciseGetLatestWordRepository
 ) {
     suspend operator fun invoke() : ExcerciseModel {
-        return ExcerciseGetLatestWordRepository.GetExcerciseGetLatestWord()
+        return excerciseGetLatestWordRepository.getExcerciseGetLatestWord()
     }
 }

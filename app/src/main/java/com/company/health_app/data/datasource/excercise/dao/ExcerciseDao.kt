@@ -30,11 +30,4 @@ interface ExcerciseDao {
     @Query("DELETE FROM excerciseroutine WHERE name = :nameToDelete")
     fun deleteByName(nameToDelete: String)
 
-
-
-//    @Query(
-//        "SELECT * FROM user " +
-//                "JOIN book ON user.id = book.user_id"
-//    )
-//    fun loadUserAndBookNames(): Map<User, List<Book>>
 }

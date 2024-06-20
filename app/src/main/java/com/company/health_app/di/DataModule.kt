@@ -13,7 +13,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object DataModule {
-
     // 룸DB 객체 반환(싱글턴)
     @Provides
     @Singleton
@@ -24,12 +23,10 @@ object DataModule {
             "excercise_database.db"
         ).build()
     }
-
     // 이제는 다오는 공짜
     @Provides
     @Singleton
     fun provideExcerciseDao(database: ExcerciseDatabase) : ExcerciseDao {
         return database.excerciseDao()
     }
-
 }

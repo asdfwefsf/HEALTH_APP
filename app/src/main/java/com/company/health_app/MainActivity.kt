@@ -23,63 +23,59 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var excerciseAdapter: ExcerciseAdapter
-    private val deleteAllLiveData = MutableLiveData<Boolean>()
     private lateinit var  excerciseDao : ExcerciseDao
-    // 리팩토링
+    // 전체 데이터 삭제 여부
+    private val deleteAllLiveData = MutableLiveData<Boolean>()
     private val excerciseViewModel: ExcerciseViewModel by viewModels()
-
-    // 리팩토링 1
-    // 함수로 사용될 변수
+    // ExcerciseAddActivity 종료되면 호출
     private val newRoutine = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
-
         val updated = result.data?.getBooleanExtra("updated", false) ?: false
         if (result.resultCode == RESULT_OK && updated) {
             updateAddWord()
         }
     }
 
-    //
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 리팩토링
+        // 탑바 UI Text
         binding.toolbar.apply {
             title = "어디 운동 할꾸?!"
         }
+
         initRecyclerView()
-        binding.callExcerciseAdd.setOnClickListener {
-            Intent(this, ExcerciseAddActivity::class.java).let { // ExcerciseAddActivity로 이동.
-                newRoutine.launch(it)
-            }
-        }
 
-
-        binding.endButton.setOnClickListener {
-            excerciseViewModel.deleteAll()
-            deleteAllLiveData.postValue(true)
-        }
-
+        //전체 데이터 삭제되면 오늘 운동 끝 토스트 메시지 + 화면 렌더링
         deleteAllLiveData.observe(this) { isDeleted ->
             if (isDeleted) {
                 initRecyclerView()
-                Toast.makeText(this, "데이터 테이블 삭제", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "오늘 운동 끝!", Toast.LENGTH_SHORT).show()
             }
         }
 
+        // 기본 운동 추가 로직 시작 버튼
         binding.goToDefaultActivityButton.setOnClickListener {
             val intent = Intent(this, DefaultActivity::class.java)
+            // Intent()의 생성자가 Activity 객체가 아닌 클래스 객체를 요구하기 때문에 , ::class 를 사용하여 KClass 객체로 변경
+            // Intent.java가 자바 클래스이기 때문에 .java를 사용하여 KClass 객체를 자바 클래스 객체로 변경
             startActivity(intent)
             fromDefaultFragmentToMainActivity()
         }
 
-        excerciseViewModel.latestWord.observe(this) { excercise ->
-            excercise?.let {
-                excerciseAdapter.list.add(0, it)
-                excerciseAdapter.notifyItemInserted(0)
+        // 전체 데이터 삭제 로직 시작 버튼
+        binding.endButton.setOnClickListener {
+            excerciseViewModel.deleteAll()
+            // 삭제되면
+            deleteAllLiveData.postValue(true)
+        }
+        // 커스텀 운동 목록 추가 로직 시작 버튼
+        binding.callExcerciseAdd.setOnClickListener {
+            Intent(this, ExcerciseAddActivity::class.java).let {
+                newRoutine.launch(it)
             }
         }
 
@@ -92,7 +88,13 @@ class MainActivity : ComponentActivity() {
         excerciseViewModel.getAllExcercise()
 
     }
-
+    // 기본운동 추가 로직 종료되면 DefaultFrament에서 Intent로 값 받아와서 true이면 initRecyclerView() 실행
+    private fun fromDefaultFragmentToMainActivity() {
+        val intent = Intent().getBooleanExtra("endDefaultFragment", false)
+        if (intent) {
+            initRecyclerView()
+        }
+    }
 
     @SuppressLint("NotifyDataSetChanged")
     private fun initRecyclerView() {
@@ -112,24 +114,15 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    // 리팩토링 1
-    private fun updateAddWord() { // // roomDatabase에 최근에 추가된 Data 가져와서 Adapter에 새로운 Data로 Collection에 넣어줘
+    // ExcerciseAddActivity가 종료되면 호출되는 함수에서 제일 마지막에 호출 :
+    private fun updateAddWord() {
         Thread {
-//            ExcerciseDatabase.getInstance(this)?.excerciseDao()?.getLatestWord()?.let { excercise ->
-            excerciseDao?.getLatestWord()?.let { excercise ->
-                excerciseAdapter.list.add(0, excercise.toExcerciseModel()) //Update 할 때 Data 를 추가 하고
+            excerciseDao.getLatestWord().let { excercise ->
+                excerciseAdapter.list.add(0, excercise.toExcerciseModel())
                 runOnUiThread {
-//                    excerciseAdapter.notifyDataSetChanged()
                     excerciseAdapter.notifyItemInserted(0)
                 }
             }
         }.start()
     }
-    private fun fromDefaultFragmentToMainActivity() {
-        val intent = Intent().getBooleanExtra("endDefaultFragment", false)
-        if (intent) {
-            initRecyclerView()
-        }
-    }
-
 }

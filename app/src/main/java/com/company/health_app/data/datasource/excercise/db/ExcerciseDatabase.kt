@@ -13,20 +13,4 @@ import com.company.health_app.data.datasource.excercise.entity.ExcerciseEntity
 )
 abstract class ExcerciseDatabase : RoomDatabase() {
     abstract fun excerciseDao() : ExcerciseDao
-
-//    companion object {
-//        private var INSTANCE : ExcerciseDatabase? = null
-//        fun getInstance(context: Context) : ExcerciseDatabase? {
-//            if (INSTANCE == null) {
-//                synchronized(ExcerciseDatabase::class.java) {
-//                    INSTANCE = Room.databaseBuilder(
-//                        context.applicationContext,
-//                        ExcerciseDatabase::class.java,
-//                        "excercise_database.db"
-//                    ).fallbackToDestructiveMigration().build()
-//                }
-//            }
-//            return INSTANCE
-//        }
-//    }
 }

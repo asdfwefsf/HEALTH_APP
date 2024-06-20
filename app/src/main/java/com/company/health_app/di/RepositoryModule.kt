@@ -4,13 +4,13 @@ import com.company.health_app.data.impl.ExcerciseDeleteRepositoryImpl
 import com.company.health_app.data.impl.ExcerciseGetAllRepositoryImpl
 import com.company.health_app.data.impl.ExcerciseGetLatestWordRepositoryImpl
 import com.company.health_app.data.impl.ExcerciseInsertRepositoryImpl
-import com.company.health_app.data.impl.ExcerciseRepositoryImpl
+import com.company.health_app.data.impl.ExcerciseDeleteAllRepositoryImpl
 import com.company.health_app.data.impl.ExcerciseUpdateRepositoryImpl
 import com.company.health_app.domain.repository.ExcerciseDeleteRepository
 import com.company.health_app.domain.repository.ExcerciseGetAllRepository
 import com.company.health_app.domain.repository.ExcerciseGetLatestWordRepository
 import com.company.health_app.domain.repository.ExcerciseInsertRepository
-import com.company.health_app.domain.repository.ExcerciseRepository
+import com.company.health_app.domain.repository.ExcerciseDeleteAllRepository
 import com.company.health_app.domain.repository.ExcerciseUpdateRepository
 import dagger.Module
 import dagger.Provides
@@ -21,7 +21,7 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 object RepositoryModule {
     @Provides
-    fun provideExcerciseRepository(impl : ExcerciseRepositoryImpl) : ExcerciseRepository = impl
+    fun provideExcerciseRepository(impl : ExcerciseDeleteAllRepositoryImpl) : ExcerciseDeleteAllRepository = impl
 
     @Provides
     fun provideExcerciseGetAllRepository(impl : ExcerciseGetAllRepositoryImpl) : ExcerciseGetAllRepository = impl

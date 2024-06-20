@@ -8,6 +8,6 @@ class ExcerciseGetAllUseCase @Inject constructor(
     private val excerciseGetAllRepository : ExcerciseGetAllRepository
 ) {
     suspend operator fun invoke() : List<ExcerciseModel> {
-        return excerciseGetAllRepository.ExcerciseGetAll()
+        return excerciseGetAllRepository.excerciseGetAll()
     }
 }

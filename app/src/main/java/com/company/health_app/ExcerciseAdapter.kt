@@ -13,10 +13,7 @@ class ExcerciseAdapter (
     val list : MutableList<ExcerciseModel>,
     private val excerciseViewModel: ExcerciseViewModel,
 ) : RecyclerView.Adapter<ExcerciseAdapter.ExcerciseViewHolder>(){
-
     class ExcerciseViewHolder(private var binding : ItemExcerciseBinding) : RecyclerView.ViewHolder(binding.root) {
-
-
         fun bind(excersiceModel : ExcerciseModel , excerciseViewModel : ExcerciseViewModel) {
             binding.apply{
                 itemName.text = excersiceModel.name

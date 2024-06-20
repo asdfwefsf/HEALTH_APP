@@ -171,7 +171,7 @@ class DefaultFragment : Fragment() {
         }
 
         binding.deleteButton1.setOnClickListener {
-            exerciseModel1?.let {
+            exerciseModel1.let {
                 Log.d("sdfsf"  , "${it}")
 
                 excerciseViewModel.deleteExcercise(it)
@@ -214,23 +214,15 @@ class DefaultFragment : Fragment() {
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum2.text = numSet.toString()
 
-                        // 리팩토링
-//                        val exerciseModel = ExcerciseModel(bodyPart2, numSet)
                         val exerciseModel = ExcerciseModel(0, bodyPart2, numSet)
                         excerciseViewModel.insert(exerciseModel)
-//                        excerciseEntity = ExcerciseModel(0 ,bodyPart2, numSet).toExcerciseEntity()
-//                        Thread {
-//                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
-//                                excerciseEntity
-//                            )
-//                        }.start()
                     }
                     setNegativeButton("취소") { _, _ ->
                     }
                     setNeutralButton("DB 삭제") { _, _ ->
                         nameToDelete = bodyPart2
                         Thread {
-                            excerciseDao?.deleteByName(nameToDelete)
+                            excerciseDao.deleteByName(nameToDelete)
                         }.start()
                         binding.setNum2.text = ""
                     }
@@ -269,23 +261,16 @@ class DefaultFragment : Fragment() {
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum3.text = numSet.toString()
 
-                        // 리팩토링
-//                        val exerciseModel = ExcerciseModel( bodyPart3, numSet)
                         val exerciseModel = ExcerciseModel(0, bodyPart3, numSet)
                         excerciseViewModel.insert(exerciseModel)
-//                        excerciseEntity = ExcerciseModel(0 ,bodyPart3, numSet).toExcerciseEntity()
-//                        Thread {
-//                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
-//                                excerciseEntity
-//                            )
-//                        }.start()
+
                     }
                     setNegativeButton("취소") { _, _ ->
                     }
                     setNeutralButton("DB 삭제") { _, _ ->
                         nameToDelete = bodyPart3
                         Thread {
-                            excerciseDao?.deleteByName(nameToDelete)
+                            excerciseDao.deleteByName(nameToDelete)
                         }.start()
                         binding.setNum3.text = ""
                     }
@@ -323,23 +308,15 @@ class DefaultFragment : Fragment() {
                     setPositiveButton("확인") { _, _ ->
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum4.text = numSet.toString()
-                        // 리팩토링
-//                        val exerciseModel = ExcerciseModel(bodyPart4, numSet)
                         val exerciseModel = ExcerciseModel(0, bodyPart4, numSet)
                         excerciseViewModel.insert(exerciseModel)
-//                        excerciseEntity = ExcerciseModel(0 ,bodyPart4, numSet).toExcerciseEntity()
-//                        Thread {
-//                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
-//                                excerciseEntity
-//                            )
-//                        }.start()
                     }
                     setNegativeButton("취소") { _, _ ->
                     }
                     setNeutralButton("DB 삭제") { _, _ ->
                         nameToDelete = bodyPart4
                         Thread {
-                            excerciseDao?.deleteByName(nameToDelete)
+                            excerciseDao.deleteByName(nameToDelete)
                         }.start()
                         binding.setNum4.text = ""
                     }
@@ -377,23 +354,15 @@ class DefaultFragment : Fragment() {
                     setPositiveButton("확인") { _, _ ->
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum5.text = numSet.toString()
-                        // 리팩토링
-//                        val exerciseModel = ExcerciseModel(bodyPart5, numSet)
                         val exerciseModel = ExcerciseModel(0, bodyPart5, numSet)
                         excerciseViewModel.insert(exerciseModel)
-//                        excerciseEntity = ExcerciseModel(0 ,bodyPart5, numSet).toExcerciseEntity()
-//                        Thread {
-//                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
-//                                excerciseEntity
-//                            )
-//                        }.start()
                     }
                     setNegativeButton("취소") { _, _ ->
                     }
                     setNeutralButton("DB 삭제") { _, _ ->
                         nameToDelete = bodyPart5
                         Thread {
-                            excerciseDao?.deleteByName(nameToDelete)
+                            excerciseDao.deleteByName(nameToDelete)
                         }.start()
                         binding.setNum5.text = ""
                     }
@@ -431,25 +400,16 @@ class DefaultFragment : Fragment() {
                     setPositiveButton("확인") { _, _ ->
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum6.text = numSet.toString()
-//                        setNumList.add(numSet)
 
-                        // 리팩토링
-//                        val exerciseModel = ExcerciseModel(bodyPart6, numSet)
                         val exerciseModel = ExcerciseModel(0, bodyPart6, numSet)
                         excerciseViewModel.insert(exerciseModel)
-//                        excerciseEntity = ExcerciseModel(0 ,bodyPart6, numSet).toExcerciseEntity()
-//                        Thread {
-//                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
-//                                excerciseEntity
-//                            )
-//                        }.start()
                     }
                     setNegativeButton("취소") { _, _ ->
                     }
                     setNeutralButton("DB 삭제") { _, _ ->
                         nameToDelete = bodyPart6
                         Thread {
-                            excerciseDao?.deleteByName(nameToDelete)
+                            excerciseDao.deleteByName(nameToDelete)
                         }.start()
                         binding.setNum6.text = ""
                     }
@@ -487,25 +447,15 @@ class DefaultFragment : Fragment() {
                     setPositiveButton("확인") { _, _ ->
                         numSet = choiceSetPicker.value.toString().toInt()
                         binding.setNum7.text = numSet.toString()
-//                        setNumList.add(numSet)
-                        // 리팩토링
-//                        val exerciseModel = ExcerciseModel( bodyPart7, numSet)
                         val exerciseModel = ExcerciseModel(0, bodyPart7, numSet)
                         excerciseViewModel.insert(exerciseModel)
-//                        excerciseEntity = ExcerciseModel(0 ,bodyPart7, numSet).toExcerciseEntity()
-//                        Thread {
-//                            ExcerciseDatabase.getInstance(requireContext())?.excerciseDao()?.insert(
-//                                excerciseEntity
-//                            )
-//                        }.start()
-
                     }
                     setNegativeButton("취소") { _, _ ->
                     }
                     setNeutralButton("DB 삭제") { _, _ ->
                         nameToDelete = bodyPart7
                         Thread {
-                            excerciseDao?.deleteByName(nameToDelete)
+                            excerciseDao.deleteByName(nameToDelete)
                         }.start()
                         binding.setNum7.text = ""
                     }
