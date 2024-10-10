@@ -17,9 +17,54 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="500dp"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
+        />
+
+
+    <Button
+        android:id="@+id/subcription"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text = "정기구독"
+        app:layout_constraintBottom_toTopOf="@id/productname"
+        />
+
+    <TextView
+        android:id="@+id/productname"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text = "productname"
+        app:layout_constraintBottom_toTopOf="@id/price"
+        />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text = "price"
+        app:layout_constraintBottom_toTopOf="@id/desc"
+        />
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text = "desc"
         app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bilingTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/goToDefaultActivityButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/download"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/ability1"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -58,5 +103,8 @@
         android:src="@drawable/add"
         android:backgroundTint="@color/teal_200"
         android:contentDescription="@string/ability3" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

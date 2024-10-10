@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" >
 
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.android.vending.BILLING" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -12,7 +16,7 @@
         android:roundIcon="@drawable/group"
         android:supportsRtl="true"
         android:theme="@style/Theme.HEALTH_APP"
-        tools:targetApi="33" >
+        tools:targetApi="34" >
         <activity
             android:name=".presentation.difault.DefaultActivity"
             android:exported="false"
